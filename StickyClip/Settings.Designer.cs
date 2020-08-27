@@ -61,22 +61,10 @@ namespace StickyClip {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("small")]
-        public string ViewerFontSize {
-            get {
-                return ((string)(this["ViewerFontSize"]));
-            }
-            set {
-                this["ViewerFontSize"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("13")]
-        public int EditorFontSize {
+        public float EditorFontSize {
             get {
-                return ((int)(this["EditorFontSize"]));
+                return ((float)(this["EditorFontSize"]));
             }
             set {
                 this["EditorFontSize"] = value;

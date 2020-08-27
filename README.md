@@ -14,5 +14,4 @@ After launch, application monitors clipboard. If new text starts with **command 
 |   CommandInitiatorToken   |   `string`   |  !    | Text starts with this token is considered as a note creation command and processed by Sticky Clip |
 |   DefaultSize             |  `int, int`  |  200, 200    | Default size of new sticker note |
 |   SaveFile                |   `string`   |  SavedNotes.json    | Filename of save file |
-|   ViewerFontSize          |   `string`   |  small    | CSS font-size argument of markdown viewer. |
 |   EditorFontSize          |     `int`    |  13    | Font size of markdown editor in **pt**. |

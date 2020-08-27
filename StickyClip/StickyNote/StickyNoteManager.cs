@@ -24,34 +24,48 @@ namespace StickyClip
             clipBoard = new SharpClipboard { ObserveLastEntry = false };
 
             clipBoard.ClipboardChanged += ClipBoard_ClipboardChanged;
-            previousText = clipBoard.ClipboardText;
+            previousText = TextFilter(clipBoard.ClipboardText);
         }
 
         private void ClipBoard_ClipboardChanged(object sender, SharpClipboard.ClipboardChangedEventArgs e)
         {
             if (e.ContentType == SharpClipboard.ContentTypes.Text)
             {
-                string cleanText = clipBoard.ClipboardText.Trim();
+                string cleanText = TextFilter(clipBoard.ClipboardText);
 
                 if (!cleanText.Equals(previousText) &&
                     cleanText.StartsWith(Settings.Default.CommandInitiatorToken))
                 {
                     lock (addNoteLock)
                     {
-                        previousText = clipBoard.ClipboardText;
+                        previousText = cleanText;
                         AddNote(cleanText.Substring(Settings.Default.CommandInitiatorToken.Length));
                     }
                 }
             }
         }
 
+        private string TextFilter(string s)
+        {
+            return s != null ? s.Trim().Replace("\\n", "\n") : null;
+        }
+
         private void AddNote(string markdown)
         {
-            StickyNoteForm stickyNoteForm = 
+            StickyNoteForm stickyNoteForm =
                 new StickyNoteForm(markdown);
+
+            stickyNoteForm.FormClosed += StickyNoteForm_FormClosed;
             stickyNoteForms.Add(stickyNoteForm);
-            stickyNoteForm.ShowDialog();
-            stickyNoteForm.Enabled = false;
+            stickyNoteForm.Show();
+        }
+
+        private void StickyNoteForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            if (e.CloseReason != System.Windows.Forms.CloseReason.ApplicationExitCall)
+            {
+                stickyNoteForms.Remove((StickyNoteForm)sender);
+            }
         }
 
         private void LoadStickies()
@@ -73,7 +87,7 @@ namespace StickyClip
                 }
             }
             catch
-            {}
+            { }
         }
 
         private void SaveStickies()
@@ -89,11 +103,6 @@ namespace StickyClip
         public void Dispose()
         {
             SaveStickies();
-
-            foreach (StickyNoteForm stickyNoteForm in stickyNoteForms)
-            {
-                stickyNoteForm.Close();
-            }
         }
     }
 }

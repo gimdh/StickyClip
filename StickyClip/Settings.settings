@@ -11,10 +11,7 @@
     <Setting Name="SaveFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">SavedNotes.json</Value>
     </Setting>
-    <Setting Name="ViewerFontSize" Type="System.String" Scope="User">
-      <Value Profile="(Default)">small</Value>
-    </Setting>
-    <Setting Name="EditorFontSize" Type="System.Int32" Scope="User">
+    <Setting Name="EditorFontSize" Type="System.Single" Scope="User">
       <Value Profile="(Default)">13</Value>
     </Setting>
   </Settings>

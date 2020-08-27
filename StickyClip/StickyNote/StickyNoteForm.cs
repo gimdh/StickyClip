@@ -62,7 +62,7 @@ namespace StickyClip.StickyNote
         {
             ((WebBrowser)viewPanel.mainControl).DocumentText = 
                 $"<style>*{{margin-top: 0px; background-color: {ColorTranslator.ToHtml(SystemColors.Control)};"
-                + $"font-size: {Settings.Default.ViewerFontSize}; font-family: sans-serif}}</style>"
+                + "font-family: sans-serif}}</style>"
                 + Markdig.Markdown.ToHtml(MarkdownString);
         }
 

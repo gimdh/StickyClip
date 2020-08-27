@@ -2,6 +2,9 @@
 {
     partial class StickyNoteForm
     {
+        StickyNotePanel viewPanel;
+        StickyNotePanel editPanel;
+
         private System.ComponentModel.IContainer components = null;
 
         protected override void Dispose(bool disposing)
@@ -43,8 +46,5 @@
             viewPanel.UpdateSize(ClientSize);
             editPanel.UpdateSize(ClientSize);
         }
-
-        private StickyNotePanel viewPanel;
-        private StickyNotePanel editPanel;
     }
 }
