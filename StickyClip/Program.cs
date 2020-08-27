@@ -1,8 +1,4 @@
-﻿using StickyClip.StickyNote;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace StickyClip
@@ -14,8 +10,11 @@ namespace StickyClip
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TrayAppContext());
-            Application.Run(new StickyNoteForm("adsf"));
+
+            using (var stickyNoteManager = new StickyNoteManager())
+            {
+                Application.Run(new TrayAppContext());
+            }
         }
     }
 }

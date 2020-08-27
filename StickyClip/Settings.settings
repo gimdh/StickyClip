@@ -5,5 +5,17 @@
     <Setting Name="CommandInitiatorToken" Type="System.String" Scope="User">
       <Value Profile="(Default)">!</Value>
     </Setting>
+    <Setting Name="DefaultSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">200, 200</Value>
+    </Setting>
+    <Setting Name="SaveFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SavedNotes.json</Value>
+    </Setting>
+    <Setting Name="ViewerFontSize" Type="System.String" Scope="User">
+      <Value Profile="(Default)">small</Value>
+    </Setting>
+    <Setting Name="EditorFontSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">13</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

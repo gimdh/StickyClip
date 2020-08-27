@@ -34,5 +34,53 @@ namespace StickyClip {
                 this["CommandInitiatorToken"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200, 200")]
+        public global::System.Drawing.Size DefaultSize {
+            get {
+                return ((global::System.Drawing.Size)(this["DefaultSize"]));
+            }
+            set {
+                this["DefaultSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SavedNotes.json")]
+        public string SaveFile {
+            get {
+                return ((string)(this["SaveFile"]));
+            }
+            set {
+                this["SaveFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("small")]
+        public string ViewerFontSize {
+            get {
+                return ((string)(this["ViewerFontSize"]));
+            }
+            set {
+                this["ViewerFontSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("13")]
+        public int EditorFontSize {
+            get {
+                return ((int)(this["EditorFontSize"]));
+            }
+            set {
+                this["EditorFontSize"] = value;
+            }
+        }
     }
 }

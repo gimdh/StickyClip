@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace StickyClip.StickyNote
+﻿namespace StickyClip.StickyNote
 {
     partial class StickyNoteForm
     {
@@ -18,22 +16,35 @@ namespace StickyClip.StickyNote
 
         private void InitializeComponent()
         {
+            this.ClientSize = Settings.Default.DefaultSize;
+            this.viewPanel = StickyNotePanelFactory.CreateViewer(this.ClientSize);
+            this.editPanel = StickyNotePanelFactory.CreateEditor(this.ClientSize);
+
+            this.Resize += StickyNoteForm_Resize;
+
             this.SuspendLayout();
 
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-
-            //mainPanel
-            Controls.Add(this.mainPanel);
-            
 
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+
+            this.editPanel.Visible = false;
+            this.Controls.Add(viewPanel);
+            this.Controls.Add(editPanel);
+
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private Panel mainPanel;
+        private void StickyNoteForm_Resize(object sender, System.EventArgs e)
+        {
+            viewPanel.UpdateSize(ClientSize);
+            editPanel.UpdateSize(ClientSize);
+        }
+
+        private StickyNotePanel viewPanel;
+        private StickyNotePanel editPanel;
     }
 }
