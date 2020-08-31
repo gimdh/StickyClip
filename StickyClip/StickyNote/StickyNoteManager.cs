@@ -62,7 +62,7 @@ namespace StickyClip
 
         private void StickyNoteForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
         {
-            if (e.CloseReason != System.Windows.Forms.CloseReason.ApplicationExitCall)
+            if (e.CloseReason == System.Windows.Forms.CloseReason.UserClosing)
             {
                 stickyNoteForms.Remove((StickyNoteForm)sender);
             }
